@@ -1,0 +1,233 @@
+#inicio {
+    position: relative;
+    min-height: 10vh;
+    overflow: hidden;
+    background: none;
+}
+.contenido{
+    text-align:center;
+}
+.contenido p{
+    max-width:800px;
+    margin:35px 0px;
+    font-size:20px;
+}
+.contenido h1{
+    font-size: 50px;
+    display: block;
+    opacity: 0;
+    animation: revealText 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+}
+.contenido h1 strong, .contenido p{
+    display: block;
+    opacity: 0;
+    animation: revealText 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.contenido h1 {
+    animation-delay: 0s;
+}
+.contenido p {
+    animation-delay: 1s;
+}
+.contenido h1 strong {
+    animation-delay: 1s;
+}
+
+@keyframes revealText {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.carrusel-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 150px;
+    align-items: center;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s;
+    z-index: 1;
+}
+
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+.slide.active .contenido h1, 
+.slide.active .contenido h1 strong {
+    animation: revealText 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.slide.active .contenido h1 strong {
+    animation-delay: 0.6s;
+}
+.slide.active .separator.animate {
+    animation: revealLine 2.5s ease forwards;
+}
+
+.carrusel-controls {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    z-index: 10;
+}
+
+.carrusel-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carrusel-btn:hover {
+    border-color: #ff9d00;
+    color: #ff9d00;
+    box-shadow: 0 0 12px rgba(255, 157, 0, 0.3);
+}
+
+.carrusel-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 330px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 33.33%; 
+    background: linear-gradient(90deg, #0c61ff 0%, #3e92ff 100%);
+    transition: width 0.4s ease;
+}
+
+.slide-counter {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.slide-counter strong {
+    color: #fff;
+}
+
+.scroll-indicator{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+    transition:.8s;
+}
+
+.scroll-indicator.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+.mouse{width:34px;height:58px;border:2px solid white;border-radius:30px;position:relative}
+.mouse::before{
+    content:"";width:5px;height:12px;border-radius:10px;background:white;
+    position:absolute;left:50%;top:8px;transform:translateX(-50%);
+    animation:scroll 2s infinite;
+}
+@keyframes scroll{from{opacity:1;top:8px}to{opacity:0;top:30px}}
+
+@media(max-width:920px){
+    .slide {
+        padding-top: 100px;
+        padding-bottom: 90px;
+        justify-content: center;
+    }
+
+    .contenido {
+        padding: 0 50px;
+    }
+
+    .contenido h1 {
+        font-size: 38px;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .contenido p {
+        margin: 20px 20px;
+        font-size: 18px;
+        line-height: 1.5;
+        max-width: 100%;
+    }  
+}
+@media(max-width:720px){
+    .contenido p{
+        margin:30px 50px;
+        font-size:16px;
+    }
+    .slide {
+        padding-top: 120px;
+    }
+    .scroll-indicator {
+        display: none;
+    }
+    .carrusel-controls {
+        bottom: 50%;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .progress-bar {
+        display: none;
+    }
+    .slide-counter {
+        display: none;
+    }
+    .slide-counter strong {
+        display: none;
+    }
+}
+
+
