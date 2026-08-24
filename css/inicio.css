@@ -205,7 +205,7 @@
 }
 @media(max-width:720px){
     .contenido p{
-        margin:30px 50px;
+        margin:30px 5px;
         font-size:16px;
     }
     .slide {
@@ -218,6 +218,11 @@
         bottom: 50%;
         width: 100%;
         justify-content: space-between;
+    }
+    .carrusel-btn {
+        background: none;
+        border: none;
+        color: #fff;
     }
     .progress-bar {
         display: none;

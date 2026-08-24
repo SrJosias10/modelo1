@@ -435,7 +435,7 @@ p{
     display: flex;
     justify-content: center;
     gap: 25px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 .btn-main{
   --color:#20a9e8;

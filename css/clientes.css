@@ -137,6 +137,11 @@
 }
 
 /* ===== RESPONSIVE ===== */
+@media(max-width:920px){
+    .clientes{
+        background-attachment: scroll;
+    }
+}
 
 @media (max-width: 700px){
     .testimonio{

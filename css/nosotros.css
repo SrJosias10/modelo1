@@ -81,7 +81,10 @@
     .nosotros-body {
       flex-direction: column;
     }
-  }
+    .nosotros{
+        background-attachment: scroll;
+    }
+}
   .equipo-contenedor {
     position: relative;
     max-width: 1100px;

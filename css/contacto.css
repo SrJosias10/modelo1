@@ -237,7 +237,9 @@
     .mapa-section{
         min-height:260px;
     }
-
+    .contacto{
+        background-attachment: scroll;
+    }
 }
 
 @media(max-width:768px){
