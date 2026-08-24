@@ -53,7 +53,6 @@
 }
 
 .slide {
-    background-attachment: fixed;
     position: absolute;
     top: 0;
     left: 0;
@@ -181,6 +180,7 @@
 
 @media(max-width:920px){
     .slide {
+        background-attachment: scroll;
         padding-top: 100px;
         padding-bottom: 90px;
         justify-content: center;
