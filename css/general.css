@@ -9,7 +9,7 @@ html{
 body{
     font-family:'Montserrat',sans-serif;
     background:#01011a;
-    color:white;
+    color:rgb(221, 221, 221);
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
     --texto-blanco: #ffffff;
     --fondo-cartas-claro: #fff;
     --sombra: 0 10px 30px rgba(0, 0, 0, 0.3);
-    --color-texto: #e0e0e0;
+    --color-texto: #cfcece;
     --fondo-boton: #f4f1ea;
     --texto-boton: #171717;
     --transicion: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -381,6 +381,7 @@ body::-webkit-scrollbar {
 }
 
 h1 {
+  color: rgb(194, 194, 194);
   font-size: 40px;
   font-weight: 300;
   line-height: 1.4;
@@ -407,6 +408,7 @@ p{
   font-size: 18px;
   line-height: 1.6;
   text-align: center;
+  color: var(--color-texto)
 }
 
 .separator {
