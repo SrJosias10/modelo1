@@ -4,35 +4,11 @@ const listaSecciones = identificadoresSecciones.map(id => document.getElementByI
 const botonesNavegacion = document.querySelectorAll('.scroll-btn');
 
 let indiceSeccionActual = 0;
-function easeInOutQuad(t) {
-  return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-}
-
-function scrollSuaveLento(destinoY, duracionMs = 1200) {
-  const inicioY = window.scrollY;
-  const distancia = destinoY - inicioY;
-  const inicioTiempo = performance.now();
-
-  function paso(tiempoActual) {
-    const tiempoTranscurrido = tiempoActual - inicioTiempo;
-    const progreso = Math.min(tiempoTranscurrido / duracionMs, 1);
-    const progresoSuavizado = easeInOutQuad(progreso);
-
-    window.scrollTo(0, inicioY + distancia * progresoSuavizado);
-
-    if (progreso < 1) {
-      requestAnimationFrame(paso);
-    }
-  }
-
-  requestAnimationFrame(paso);
-}
 
 function irASeccion(id) {
   const seccionObjetivo = document.getElementById(id);
   if (seccionObjetivo) {
-    const destinoY = seccionObjetivo.getBoundingClientRect().top + window.scrollY;
-    scrollSuaveLento(destinoY, 1200); // 1200ms = 1.2 segundos, ajustá a gusto
+    seccionObjetivo.scrollIntoView({ behavior: 'auto' });
   }
 }
 
