@@ -82,12 +82,27 @@ document.addEventListener("DOMContentLoaded", () => {
       pista.appendChild(el);
     });
 
+    // --- NUEVO: ASIGNAR CLIC A TODAS LAS TARJETAS DE LA PISTA (ORIGINALES + CLONES) ---
+    Array.from(pista.children).forEach((tarjeta, i) => {
+      tarjeta.addEventListener("click", (e) => {
+        // Si la tarjeta clickeada NO es la activa actual y no se está moviendo
+        if (i !== indice && !moviendo) {
+          // Prevenimos que se disparen enlaces o botones internos si estaba opaca
+          e.preventDefault();
+          e.stopPropagation();
+
+          moviendo = true;
+          indice = i;
+          posicionar(true);
+        }
+      });
+    });
+
     if (puntosContainer) {
       puntosContainer.innerHTML = "";
 
       originales.forEach((_, i) => {
         const punto = document.createElement("div");
-
         punto.className = "punto";
 
         if (i === 0) {
@@ -97,8 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         punto.addEventListener("click", () => {
           if (moviendo) return;
 
+          moviendo = true;
           indice = i + clones;
-          posicionar(false);
           posicionar(true);
         });
 
@@ -111,8 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : [];
 
     function obtenerTransformX() {
-      const transform =
-        getComputedStyle(pista).transform;
+      const transform = getComputedStyle(pista).transform;
 
       if (!transform || transform === "none") {
         return 0;
@@ -126,55 +140,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!tarjeta) return;
 
-      pista.classList.toggle(
-        "con-transicion",
-        conTransicion
-      );
+      pista.classList.toggle("con-transicion", conTransicion);
 
-      const rect =
-        tarjeta.getBoundingClientRect();
+      const rect = tarjeta.getBoundingClientRect();
+      const centroTarjeta = rect.left + rect.width / 2;
+      const centroPagina = window.innerWidth / 2;
+      const diferencia = centroPagina - centroTarjeta;
+      const transformActual = obtenerTransformX();
 
-      const centroTarjeta =
-        rect.left + rect.width / 2;
-
-      const centroPagina =
-        window.innerWidth / 2;
-
-      const diferencia =
-        centroPagina - centroTarjeta;
-
-      const transformActual =
-        obtenerTransformX();
-
-      pista.style.transform =
-        `translate3d(${transformActual + diferencia}px, 0, 0)`;
+      pista.style.transform = `translate3d(${transformActual + diferencia}px, 0, 0)`;
 
       actualizarEstado();
     }
 
     function actualizarEstado() {
-      const tarjetas =
-        Array.from(pista.children);
+      const tarjetas = Array.from(pista.children);
 
       tarjetas.forEach((tarjeta, i) => {
-        tarjeta.classList.toggle(
-          "activa",
-          i === indice
-        );
+        tarjeta.classList.toggle("activa", i === indice);
       });
 
-      let real =
-        (indice - clones) % total;
+      let real = (indice - clones) % total;
 
       if (real < 0) {
         real += total;
       }
 
       puntos.forEach((punto, i) => {
-        punto.classList.toggle(
-          "activo",
-          i === real
-        );
+        punto.classList.toggle("activo", i === real);
       });
     }
 
@@ -220,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let resizeTimer;
-
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
 
@@ -248,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     puntosId: "puntosEquipo"
   });
 });
+
+
 
 //carrusel clientes
 document.addEventListener("DOMContentLoaded", () => {

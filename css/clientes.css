@@ -48,7 +48,7 @@
   overflow: hidden;
   border-radius: 24px;
   background: var(--fondo-degradado, linear-gradient(180deg, #e4e8ec 0%, #f7f9fa 100%));
-  border: 1px solid var(--tarjeta-borde, rgba(0, 0, 0, 0.05));
+  border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
