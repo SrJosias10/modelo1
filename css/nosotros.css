@@ -1,204 +1,223 @@
-.nosotros{
-    padding: 120px 8%;
-    position: relative;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-    background-attachment: fixed;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 10%, rgba(4, 2, 51, 0.97) 60%, rgba(5, 26, 112, 0.90) 100%), url('../imagenes/fondo4.png');
+/* ==========================================
+   SECCIÓN NOSOTROS
+   ========================================== */
+.seccion-nosotros {
+  padding: 4rem 2rem;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
-.nosotros strong{
-  color: #e87020;
-  text-shadow: 0 0 10px rgba(255, 140, 66, 0.5), 0 0 30px rgba(255, 140, 66, 0.3);
+/* 1. PRESENTACIÓN */
+.nosotros-presentacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
 }
 
-.nosotros-header{
-    text-align:center;
-    max-width:850px;
-    margin:0 auto 70px;
-    position:relative;
-}
-.nosotros-body {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 99;
-  }
-  
-  .nosotros-imagen-box {
-    flex: 1;
-    max-width: 480px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .nosotros-img {
-    width: 100%;
-    height: 310px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 1px solid rgba(32, 169, 232, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
-  
-.nosotros .card {
-    background: var(--fondo);
-    color: #fff;
-}
-.nosotros .card .icon-header i {
-    color: var(--color-secundario);
+.texto-naranja {
+  color: var(--color-acento-naranja, #e65c00);
 }
 
-  .nosotros-cards-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-.nosotros .card .content {
-    background: var(--fondo);
-}
-.nosotros .card .content p {
-    color: #fff;
+.descripcion-nosotros {
+  color: var(--texto-secundario, #64748b);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 1rem;
 }
 
-  @media (max-width: 1000px) {
-    .nosotros-img {
-      height: 210px;
-    }
-  }
-  
-  @media (max-width: 900px) {
-    .nosotros-body {
-      flex-direction: column;
-    }
-    .nosotros{
-        background-attachment: scroll;
-    }
+.nosotros-imagen-principal {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
-  .equipo-contenedor {
-    position: relative;
-    max-width: 1100px;
-    margin: 80px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-  }
-  
-  .equipo-carrusel-pantalla {
-    overflow: hidden;
-    width: 100%;
-  }
-  
-  .equipo-carrusel-pista {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.4s ease-in-out;
-  }
 
-  .tarjeta-equipo {
-    flex: 0 0 calc((100% - 40px) / 3);
-    background: 
-        linear-gradient(160deg, #000214 0%, #02072b 45%, #050d42 75%, #010317 100%) padding-box,
-        linear-gradient(135deg, #ff8a3d, #2b8fff) border-box;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid transparent;
-    border-radius: 20px;
-    padding: 30px 20px;
+.nosotros-imagen-principal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 2. MÉTRICAS */
+.nosotros-metricas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.tarjeta-metrica {
+  background: var(--fondo-degradado, linear-gradient(180deg, #d2d6db 0%, #f4f5f7 100%));
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: none;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.icono-metrica {
+  font-size: 1.8rem;
+  color: var(--color-acento-naranja, #e65c00);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.contenido-metrica h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto-principal, #1e293b);
+  margin-bottom: 0.5rem;
+}
+
+.contenido-metrica p {
+  font-size: 0.85rem;
+  color: var(--texto-secundario, #64748b);
+  line-height: 1.4;
+}
+
+/* BAJADA EQUIPO */
+.bajada-equipo {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+  color: var(--texto-secundario, #64748b);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* 3. CARRUSEL EQUIPO */
+.contenedor-carrusel-nosotros {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5rem 0;
+}
+
+.tarjeta-miembro {
+  flex: 0 0 calc((100% - 48px) / 3);
+  background: var(--fondo-degradado, linear-gradient(180deg, #d2d6db 0%, #f4f5f7 100%));
+  border-radius: 24px;
+  border: 1px solid var(--tarjeta-borde, rgba(0, 0, 0, 0.05));
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+
+  /* Efecto de foco para tarjeta central */
+  opacity: 0.4;
+  transform: scale(0.93);
+  filter: blur(0.5px);
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tarjeta-miembro.activa {
+  opacity: 1;
+  transform: scale(1.03);
+  filter: blur(0px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-miembro {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 3px solid #ffffff;
+}
+
+.avatar-miembro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nombre-miembro {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--texto-principal, #0f172a);
+  margin-bottom: 0.3rem;
+}
+
+.cargo-miembro {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--texto-secundario, #64748b);
+  margin-bottom: 1.5rem;
+}
+
+.btn-linkedin {
+  padding: 0.4rem 1.2rem;
+  background: transparent;
+  border: 1px solid var(--texto-principal, #334155);
+  border-radius: 6px;
+  color: var(--texto-principal, #334155);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-linkedin:hover {
+  background: var(--texto-principal, #334155);
+  color: #ffffff;
+}
+
+/* RESPONSIVE NOSOTROS */
+@media (max-width: 900px) {
+  .nosotros-presentacion {
+    grid-template-columns: 1fr;
     text-align: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
-  .tarjeta-equipo-imagen-box {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    padding: 4px;
-    background: 
-        linear-gradient(#0d1222, #0d1222) padding-box,
-        linear-gradient(135deg, #ff8a3d, #2b8fff) border-box;
-    border: 2px solid transparent;
-    margin-bottom: 20px;
+  .nosotros-metricas {
+    grid-template-columns: 1fr;
   }
-  
-  .tarjeta-equipo-img {
+}
+@media (max-width: 1000px) {
+  .tarjeta-miembro {
+    flex: 0 0 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .seccion-nosotros {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: hidden;
+  }
+
+  .contenedor-carrusel-nosotros {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+    overflow: hidden;
+    padding: 1.5rem 0;
   }
-  
-  /* Textos */
-  .tarjeta-equipo-nombre {
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-    font-weight: 600;
+
+  .pista-carrusel {
+    width: max-content;
+    gap: 14px;
   }
-  
-  .tarjeta-equipo-puesto {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-    margin-bottom: 25px;
+
+  .tarjeta-miembro {
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    transform: scale(0.88);
+    opacity: 0.4;
+    filter: blur(0.5px);
   }
-  .equipo-boton {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 1.8rem;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-    transition: color 0.3s ease;
+
+  .tarjeta-miembro.activa {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: blur(0);
   }
-  
-  .equipo-boton:hover {
-    color: #20a9e8;
-  }
-  
-  .equipo-indicadores {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 25px;
-  }
-  
-  .punto-indicador {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background-color: #afafaf;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .punto-indicador.activo {
-    background-color: var(--color-principal);
-    width: 20px;
-    border-radius: 10px;
-  }
-  @media (max-width: 900px) {
-    .tarjeta-equipo {
-      flex: 0 0 calc((100% - 20px) / 2);
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .tarjeta-equipo {
-      flex: 0 0 100%;
-    }
-  }
+}

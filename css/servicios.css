@@ -1,375 +1,273 @@
-.servicios {
-    padding: 120px 8%;
-    position: relative;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.952) 0%, rgba(240, 240, 240, 0.96) 100%), url('../imagenes/fondo-servicios.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-    background-attachment: fixed;
+.seccion-servicios {
+  padding: 4rem 2rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  font-family: inherit;
 }
 
-.servicios-header,
-.servicios-grid{
-    position:relative;
-    z-index:1;
+/* Encabezado */
+.bloque-superior-servicios {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3.5rem;
 }
 
-.servicios-header{
-    text-align:center;
-    max-width:850px;
-    margin:0 auto 70px;
-    position:relative;
-}
-.servicios h1{
-    color: #000000;
-}
-.servicios strong{
-    color: #2087e8;
-    text-shadow:0 0 10px rgba(52, 70, 238, 0),0 0 30px rgba(15, 43, 201, 0);
-}
-.servicios p{
-    color: #000000;
-}
-.servicios .titulo-seccion{
-    color: #000000;
-}
-.servicios .separator{
-    background: linear-gradient(90deg,transparent,#20a9e8,#2087e8,transparent);
-    height: 1.4px;
+.texto-azul {
+  color: var(--azul-acento);
 }
 
-.servicios-grid {
-    display: grid;
+.descripcion-seccion {
+  color: var(--texto-secundario);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.contenedor-imagen-servicios img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+/* Grilla Horizontal de 6 Tarjetas */
+.grilla-6-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.tarjeta-servicio {
+  position: relative;
+  background-color: var(--tarjeta-fondo);
+  border: 1px solid var(--tarjeta-borde);
+  border-radius: calc(var(--radio-borde) + 4px);
+  height: 160px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+/* Reposo con degradado del root */
+.contenido-reposo {
+  background: var(--fondo-degradado);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  gap: 0.8rem;
+  transition: opacity 0.25s ease;
+  border: none;
+}
+
+.icono-servicio {
+  font-size: 2rem;
+  color: var(--texto-principal);
+}
+
+.contenido-reposo span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+  line-height: 1.2;
+}
+
+/* Hover (Card Azul en Degradado usando variables) */
+.contenido-hover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-azul-hover-inicio) 0%, var(--color-azul-hover-fin) 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  border-radius: calc(var(--radio-borde) + 4px);
+}
+
+.contenido-hover p {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.contenido-hover span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.tarjeta-servicio:hover .contenido-reposo {
+  opacity: 0;
+}
+
+.tarjeta-servicio:hover .contenido-hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+   ESTÁNDARES E ISO
+   ========================================== */
+.bloque-estandares {
+  text-align: center;
+}
+
+.titulo-estandares {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--texto-principal);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.descripcion-estandares {
+  color: var(--texto-secundario);
+  max-width: 620px;
+  margin: 0 auto 3rem auto;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.grilla-certificaciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  text-align: left;
+}
+
+.tarjeta-certificacion {
+  background: var(--fondo-degradado);
+  border-radius: calc(var(--radio-borde) + 8px);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.encabezado-cert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.caja-icono-cert {
+  width: 42px;
+  height: 42px;
+  background-color: var(--etiqueta-fondo);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--texto-principal);
+}
+
+.letra-gartner {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.insignia-vigencia {
+  background-color: var(--menu-fondo);
+  color: var(--menu-texto);
+  font-size: 0.7rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.tarjeta-certificacion h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  margin-bottom: 1rem;
+}
+
+.tarjeta-certificacion p {
+  color: var(--texto-secundario);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.lista-items-cert {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.lista-items-cert li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--texto-secundario);
+  font-weight: 600;
+}
+
+.lista-items-cert i {
+  color: var(--texto-principal);
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+.boton-ver-certificado {
+  align-self: flex-start;
+  background-color: var(--boton-fondo);
+  border: 1px solid var(--boton-borde);
+  color: var(--texto-principal);
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.boton-ver-certificado:hover {
+  background-color: var(--texto-principal);
+  color: var(--color-fondo-siguiente);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .grilla-6-tarjetas {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-    justify-items: center;
-    position: relative;
-    z-index: 99;
-}
-.cardBox {
-    width: 100%;
-    max-width: 330px;
-    height: 90px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    padding: 2px;
-    background: linear-gradient(135deg, #20a9e8 0%, #ff8243 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.4s ease, background 0.4s ease;
-    z-index: 100;
-    isolation: isolate;
-    will-change: transform;
-}
-
-.cardBox:hover {
-    background: linear-gradient(90deg, #00f0ff 0%, #ff6b00 100%);
-    box-shadow: -12px 0 25px rgba(0, 240, 255, 0.6), 
-                 12px 0 25px rgba(255, 107, 0, 0.6);
-    z-index: 101;
-}
-
-.card {
-    width: 100%;
-    height: 100%;
-    background: var(--fondo-cartas-claro);
-    border-radius: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-    overflow: hidden;
-    padding: 10px 20px;
-    cursor: pointer;
-    position: relative;
-    pointer-events: auto;
-}
-
-.card .bg-number {
-    position: absolute;
-    top: 50%;
-    left: 85%;
-    transform: translate(-50%, -50%);
-    font-size: 3.5rem;
-    font-weight: 800;
-    pointer-events: none;
-    opacity: 0.05;
-    color: #ffffff;
-}
-
-.card .icon-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    transition: transform 0.35s ease, opacity 0.35s ease;
-    z-index: 2;
-    width: 100%;
-    pointer-events: none;
-}
-
-.card .icon-header i {
-    font-size: 1.5rem;
-    color: #20a9e8;
-    flex-shrink: 0;
-}
-
-.card .icon-header h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin: 0;
-    text-align: left;
-    line-height: 1.2;
-}
-
-.card:hover .icon-header {
-    opacity: 0;
-    transform: translateY(-15px);
-}
-
-.card .content {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 20px;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: transform 0.35s ease, opacity 0.35s ease;
-    z-index: 3;
-    background: var(--fondo-cartas-claro);
-    border-radius: 48px;
-    pointer-events: none;
-}
-
-.card:hover .content {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.card .content p {
-    font-size: 0.78rem;
-    font-weight: 520;
-    line-height: 1.3;
-    color: #020202;
-    margin: 0;
-}
-
-@media (max-width: 992px) {
-    .servicios-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .servicios{
-        background-attachment: scroll;
-    }
-}
-
-@media (max-width: 650px) {
-    .servicios-grid {
-        grid-template-columns: 1fr;
-    }
-}
-.certificacion-wrapper {
-    max-width: 1000px;
-    margin: 60px auto 0;
-    padding: 2px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #20a9e8 0%, #ff8243 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    transition: box-shadow 0.4s ease;
-}
-
-.certificacion-wrapper:hover {
-    box-shadow: 0 4px 25px rgba(32, 169, 232, 0.35);
-}
-
-.certificacion-box {
-    background: var(--fondo-cartas-claro);
-    border-radius: 18px;
-    padding: 32px 40px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.certificacion-left {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    width: 90px;
-}
-
-.certificacion-badge {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    border: 1.5px solid #20a9e8;
-    background: rgba(32, 169, 232, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.certificacion-badge i {
-    font-size: 1.5rem;
-    color: #20a9e8;
-}
-
-.certificacion-tag {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #000000;
-    text-align: center;
-}
-
-.certificacion-divider {
-    width: 1px;
-    align-self: stretch;
-    background: linear-gradient(180deg, transparent, rgba(32, 169, 232, 0.4), transparent);
-    flex-shrink: 0;
-}
-
-.certificacion-info {
-    flex: 1;
-    text-align: left;
-    min-width: 0;
-}
-
-.certificacion-info h3 {
-    color: #020202;
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin: 0 0 8px;
-}
-
-.certificacion-alcance {
-    color: #000000;
-    font-size: 0.88rem;
-    margin: 0 0 12px;
-}
-
-.certificacion-datos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-}
-
-.certificacion-datos span {
-    color: #000000;
-    font-size: 0.78rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.certificacion-datos i {
-    color: #20a9e8;
-    font-size: 0.75rem;
-}
-
-.certificacion-ver {
-    flex-shrink: 0;
-    white-space: nowrap;
-    padding: 11px 20px;
-    border-radius: 30px;
-    border: 1.5px solid #20a9e8;
-    color: #20a9e8;
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.certificacion-ver:hover {
-    background: #20a9e8;
-    color: #000814;
-}
-
-.cert-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 8, 20, 0.94);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-}
-
-.cert-modal.active {
-    display: flex;
-}
-
-.cert-modal-img {
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 12px;
-    box-shadow: 0 0 40px rgba(32, 169, 232, 0.4);
-}
-
-.cert-modal-error {
-    display: none;
-    color: #b8c2d0;
-    font-size: 0.9rem;
-    text-align: center;
-    max-width: 400px;
-}
-
-.cert-modal-error code {
-    color: #20a9e8;
-}
-
-.cert-modal-close {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-    font-size: 2.5rem;
-    color: #ffffff;
-    cursor: pointer;
-    line-height: 1;
+  }
 }
 
 @media (max-width: 768px) {
-    .certificacion-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 25px;
-        gap: 18px;
-    }
-    .certificacion-left {
-        flex-direction: row;
-        width: auto;
-    }
-    .certificacion-divider {
-        width: 80%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(32, 169, 232, 0.4), transparent);
-    }
-    .certificacion-info {
-        text-align: center;
-    }
-    .certificacion-datos {
-        justify-content: center;
-    }
-    .certificacion-ver {
-        width: 100%;
-        justify-content: center;
-    }
+  .bloque-superior-servicios,
+  .grilla-certificaciones {
+    grid-template-columns: 1fr;
+  }
+
+  .grilla-6-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grilla-6-tarjetas {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,209 +1,178 @@
-.clientes{
-    padding: 120px 8%;
-    position: relative;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 243, 255, 0.95) 100%), url('../imagenes/fondo3.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-    background-attachment: fixed;
+/* ==========================================
+   SECCIÓN CLIENTES
+   ========================================== */
+.seccion-clientes {
+  padding: 4rem 2rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.clientes-header,
-.clientes-grid{
-    position:relative;
-    z-index:1;
+.encabezado-clientes {
+  max-width: 650px;
+  margin: 0 auto 2.5rem auto;
 }
 
-.clientes-header{
-    text-align:center;
-    max-width:850px;
-    margin:0 auto 70px;
-    position:relative;
-}
-.clientes h1{
-    color: #000000;
-}
-.clientes strong{
-    color: #2087e8;
-    text-shadow:0 0 10px rgba(52, 70, 238, 0),0 0 30px rgba(15, 43, 201, 0);
-}
-.clientes p{
-    color: #000000;
-}
-.clientes .titulo-seccion{
-    color: #000000;
-}
-.clientes .separator{
-    background: linear-gradient(90deg,transparent,#20a9e8,#2087e8,transparent);
-    height: 1.4px;
+.texto-azul {
+  color: var(--color-acento-azul, #2b82c5);
 }
 
-/* ===== CARRUSEL ===== */
-
-.clientes-carrusel{
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+/* --- CARRUSEL HORIZONTAL TESTIMONIO --- */
+.contenedor-testimonio-carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
-.carrusel-contenedor{
-    overflow: hidden;
-    width: 100%;
+.boton-flecha-testimonio {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--texto-principal, #222222);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
-.carrusel-track{
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.boton-flecha-testimonio:hover {
+  transform: scale(1.25);
 }
 
-.testimonio{
-    min-width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    padding: 35px 40px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 16px;
+.viewport-testimonio {
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--fondo-degradado, linear-gradient(180deg, #e4e8ec 0%, #f7f9fa 100%));
+  border: 1px solid var(--tarjeta-borde, rgba(0, 0, 0, 0.05));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-.testimonio-img{
+.pista-testimonios {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Tarjeta Única Horizontal */
+.tarjeta-testimonio-horizontal {
+  flex: 0 0 100%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.avatar-testimonio {
+  width: 140px;
+  height: 140px;
+  flex: 0 0 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 2px solid #ffffff;
+}
+
+.avatar-testimonio img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info-testimonio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cita-testimonio {
+  font-size: 0.88rem;
+  color: var(--texto-secundario, #555555);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.autor-testimonio {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--texto-principal, #222222);
+}
+
+/* Puntos indicadores */
+.seccion-clientes .indicadores-puntos {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0 3.5rem 0;
+}
+
+/* --- LOGOS DE CLIENTES --- */
+.bloque-logos-confianza {
+  margin-top: 2rem;
+}
+
+.subtitulo-logos {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--texto-principal, #222222);
+  margin-bottom: 2rem;
+}
+
+.marquesina-contenedor {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.marquesina-pista {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: desplazarLogos 22s linear infinite;
+}
+
+.tarjeta-logo {
+  height: 65px;
+  padding: 0.8rem 1.8rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tarjeta-logo img {
+  max-height: 35px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+@keyframes desplazarLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 650px) {
+  .tarjeta-testimonio-horizontal {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  
+  .avatar-testimonio {
     width: 110px;
     height: 110px;
-    min-width: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #2087e8;
-    flex-shrink: 0;
-}
-
-.testimonio-contenido{
-    text-align: left;
-}
-
-.testimonio-texto{
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #333;
-    margin: 0 0 15px 0;
-}
-
-.testimonio-autor{
-    display: block;
-    font-style: italic;
-    font-weight: 600;
-    color: #2087e8;
-    text-align: right;
-}
-
-.carrusel-flecha{
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    color: #9db3c7;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    flex-shrink: 0;
-}
-.carrusel-flecha:hover{
-    color: #2087e8;
-}
-
-.carrusel-dots{
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 35px;
-}
-
-.dot{
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2px solid #2087e8;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.3s ease;
-}
-
-.dot.activo{
-    background: #2087e8;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:920px){
-    .clientes{
-        background-attachment: scroll;
-    }
-}
-
-@media (max-width: 700px){
-    .testimonio{
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    .testimonio-contenido{
-        text-align: center;
-    }
-    .testimonio-autor{
-        text-align: center;
-    }
-}
-
-@media (max-width: 600px){
-    .clientes-carrusel{
-        gap: 10px;
-    }
-    .testimonio-texto{
-        font-size: 1rem;
-    }
-}
-
-.presentacion-clientes{
-    padding-top: 50px;
-}
-
-@keyframes slides {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+    flex: 0 0 110px;
   }
-  
-  .logos {
-    overflow: hidden;
-    padding: 30px 0px;
-    white-space: nowrap;
-    position: relative;
-  }
-  
-  .logos:before, .logos:after {
-    position: absolute;
-    top: 0;
-    content: '';
-    width: 250px;
-    height: 100%;
-    z-index: 2;
-  }
-  
-  .logo_items {
-    display: inline-block;
-    animation: 30s slides infinite linear;
-  }
-  
-  .logos:hover .logo_items {
-    animation-play-state: paused;
-  }
-  
-  .logo_items img{
-    height: 100px;
-  }
+}
