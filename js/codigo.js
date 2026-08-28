@@ -1,3 +1,98 @@
+///// Boton whatsapp
+
+let waHasOpened = false;
+const PHONE_NUMBER = "5491124758250";
+
+function toggleWaChat(forceState) {
+  const chatBox = document.getElementById("waChatBox");
+  const floatBtn = document.getElementById("waFloatBtn");
+  const ping = document.getElementById("waPing");
+  const badge = document.getElementById("waBadge");
+
+  const willOpen = typeof forceState === "boolean" ? forceState : !chatBox.classList.contains("active");
+
+  chatBox.classList.toggle("active", willOpen);
+  floatBtn.classList.toggle("active", willOpen);
+  floatBtn.setAttribute("aria-label", willOpen ? "Cerrar chat de WhatsApp" : "Abrir chat de WhatsApp");
+
+  if (willOpen) {
+    waHasOpened = true;
+    if (ping) ping.style.display = "none";
+    if (badge) badge.style.display = "none";
+    const ta = document.getElementById("waInputMessage");
+    setTimeout(() => ta && ta.focus(), 180);
+  }
+}
+
+function updateSendState() {
+  const input = document.getElementById("waInputMessage");
+  const btn = document.getElementById("waSendBtn");
+  btn.disabled = input.value.trim() === "";
+}
+
+function autoResize(el) {
+  el.style.height = "auto";
+  el.style.height = Math.min(el.scrollHeight, 80) + "px";
+}
+
+function sendToWhatsApp() {
+  const input = document.getElementById("waInputMessage");
+  const userMessage = input.value.trim();
+  if (userMessage === "") return;
+
+  const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(userMessage)}`;
+  window.open(whatsappUrl, "_blank");
+
+  input.value = "";
+  autoResize(input);
+  updateSendState();
+  toggleWaChat(false);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("waInputMessage");
+  
+  if (input) {
+    input.addEventListener("input", () => { 
+      updateSendState(); 
+      autoResize(input); 
+    });
+    
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendToWhatsApp();
+      }
+    });
+  }
+
+  const timeEl = document.getElementById("waTime");
+  if (timeEl) {
+    const now = new Date();
+    timeEl.textContent =
+      now.getHours().toString().padStart(2, "0") + ":" + now.getMinutes().toString().padStart(2, "0");
+  }
+
+  document.addEventListener("click", (e) => {
+    const container = document.getElementById("waContainer");
+    const chatBox = document.getElementById("waChatBox");
+    if (chatBox && chatBox.classList.contains("active") && !container.contains(e.target)) {
+      toggleWaChat(false);
+    }
+  });
+});
+
+//scroll hamburguesa
+window.addEventListener('scroll', () => {
+  const botonHamburguesa = document.getElementById('boton-hamburguesa');
+  if (window.scrollY > 200) {
+    botonHamburguesa.classList.add('scrolled');
+  } else {
+    botonHamburguesa.classList.remove('scrolled');
+  }
+});
+
+//hamburguesa
 document.addEventListener('DOMContentLoaded', () => {
   const botonHamburguesa = document.getElementById('boton-hamburguesa');
   const botonCerrar = document.getElementById('boton-cerrar');
@@ -12,11 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function abrirMenu() {
     menuLateral.classList.add('abierto');
     capaOscura.classList.add('visible');
+    botonHamburguesa.style.display = 'none'; // Oculta la hamburguesa al abrir
   }
 
   function cerrarMenu() {
     menuLateral.classList.remove('abierto');
     capaOscura.classList.remove('visible');
+    botonHamburguesa.style.display = 'flex'; // Vuelve a mostrar la hamburguesa al cerrar
   }
 
   botonHamburguesa.addEventListener('click', abrirMenu);

@@ -133,6 +133,10 @@ body {
 }
 
 .boton-hamburguesa {
+  position: fixed;
+  top: 40px;
+  right: 60px;
+  z-index: 1000;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -142,11 +146,28 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0;
-  transition: opacity 0.2s ease;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.3s ease;
 }
 
 .boton-hamburguesa:hover {
   opacity: 0.75;
+}
+.boton-hamburguesa.scrolled {
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--menu-fondo);
+  color: var(--menu-texto);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
 }
 
 /* Menú Lateral (Sidebar) */
@@ -255,10 +276,12 @@ body {
   color: var(--azul-acento);
 }
 
-/* Selector de Tema Moderno */
 .contenedor-selector-tema {
-  margin-top: auto;
-  padding-top: 1.5rem;
+  margin-top: 1.5rem !important; 
+  padding-top: 0;
+  align-self: flex-start; 
+  width: 100%;
+  padding-top: 0;
 }
 
 .caja-selector-tema {
@@ -356,4 +379,399 @@ body {
   font-weight: 600;
   color: var(--texto-principal);
   margin-bottom: 1rem;
+}
+
+.wa-widget-container {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+/* Caja del Chat */
+.wa-chat-box {
+  width: 320px;
+  max-width: calc(100vw - 40px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 16px;
+  display: none;
+  flex-direction: column;
+  transform-origin: bottom left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.92);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.22s ease;
+}
+
+.wa-chat-box.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  display: flex;
+}
+
+/* Header */
+.wa-chat-header {
+  background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+  color: #ffffff;
+  padding: 14px 12px 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.wa-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wa-avatar-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.wa-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.wa-header-title {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff;
+}
+
+.wa-header-status {
+  font-size: 12px;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  color: #ffffff;
+}
+
+.wa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b7ffcf;
+  flex-shrink: 0;
+}
+
+.wa-close-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.wa-close-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.wa-close-btn:active {
+  transform: scale(0.9);
+}
+
+.wa-close-btn svg {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* Body / Mensajes */
+.wa-chat-body {
+  background: #e5ddd5;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 14px 14px;
+  padding: 16px;
+  min-height: 110px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.wa-message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.wa-msg-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #128c7e;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.wa-msg-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wa-msg-avatar-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.wa-message-received {
+  background: #ffffff;
+  padding: 10px 12px;
+  border-radius: 4px 12px 12px 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #303030;
+  max-width: 78%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.wa-message-time {
+  display: block;
+  font-size: 10px;
+  color: #9a9a9a;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Footer e Input */
+.wa-chat-footer {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  background: #f5f5f3;
+  gap: 8px;
+  border-top: 1px solid #e8e8e5;
+}
+
+.wa-chat-footer textarea {
+  flex: 1;
+  border: 1px solid #dcdcd9;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 9px 14px;
+  font-size: 13px;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  color: #303030;
+  max-height: 80px;
+  transition: border-color 0.15s ease;
+}
+
+.wa-chat-footer textarea:focus {
+  border-color: #25d366;
+}
+
+.wa-send-btn {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: #25d366;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.wa-send-btn:hover {
+  background: #128c7e;
+}
+
+.wa-send-btn:active {
+  transform: scale(0.9);
+}
+
+.wa-send-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.wa-send-btn svg {
+  width: 17px;
+  height: 17px;
+  margin-left: 2px;
+}
+
+/* Botón Flotante */
+.wa-float-btn {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(18, 140, 126, 0.35), 0 4px 10px rgba(0, 0, 0, 0.12);
+  pointer-events: auto;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.wa-float-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 14px 30px rgba(18, 140, 126, 0.4), 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+.wa-float-btn:active {
+  transform: scale(0.94);
+}
+
+.wa-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  opacity: 0.55;
+  animation: wa-ping-anim 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-ping-anim {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  75%, 100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.wa-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ff3b30;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  z-index: 2;
+}
+
+.wa-icon-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wa-icon-wa {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.wa-icon-x {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.5);
+}
+
+.wa-icon-x svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Transiciones al Abrir */
+.wa-float-btn.active .wa-icon-wa {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.5);
+}
+
+.wa-float-btn.active .wa-icon-x {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.wa-float-btn.active .wa-ping,
+.wa-float-btn.active .wa-badge {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .wa-widget-container {
+    left: 12px;
+    bottom: 12px;
+  }
+  .wa-chat-box {
+    width: calc(100vw - 24px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .boton-hamburguesa {
+    top: 33px;
+    right: 30px;
+  }
 }
