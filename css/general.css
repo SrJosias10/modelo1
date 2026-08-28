@@ -758,43 +758,14 @@ body {
   }
 }
 
-/*
+
 @media (max-width: 768px) {
   .boton-hamburguesa {
     top: 33px;
     right: 30px;
   }
 }
-*/
-/* ==========================================
-   FIX RESPONSIVE Y VIEWPORT MOBILE
-   ========================================== */
 
-@media (max-width: 768px) {
-  .seccion-principal {
-    min-height: 100dvh !important; 
-    padding: 1.5rem 1.25rem !important;
-    justify-content: space-between;
-  }
-  .boton-hamburguesa {
-    top: 20px !important;
-    right: 20px !important;
-    font-size: 28px !important;
-  }
-  .menu-lateral {
-    width: 300px !important; 
-    max-width: 85vw !important;
-    right: -100% !important; 
-  }
-
-  .menu-lateral.abierto {
-    right: 0 !important;
-  }
-}
-.wa-widget-container, 
-.social-fab-container {
-  max-width: 100vw;
-}
 /* Boton redes */
 .social-fab-container {
   position: fixed;

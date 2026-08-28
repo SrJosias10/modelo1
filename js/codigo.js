@@ -1,3 +1,14 @@
+function fijarAltoViewport() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+fijarAltoViewport();
+window.addEventListener('resize', fijarAltoViewport);
+window.addEventListener('orientationchange', () => setTimeout(fijarAltoViewport, 300));
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 100);
+});
+
 //navegacion
 document.addEventListener('DOMContentLoaded', () => {
   const enlacesNav = document.querySelectorAll('.navegacion-menu a, .lista-links a, a[href^="#"]');
