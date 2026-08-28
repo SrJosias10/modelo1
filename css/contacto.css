@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.153);
+  box-shadow: 0 4px 15px var(--sombra);
 }
 
 .icono-contacto-circulo {
@@ -80,14 +80,14 @@ a.valor-info:hover {
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px var(--sombra);
   border: 1px solid var(--tarjeta-borde, rgba(0, 0, 0, 0.05));
   margin-top: 0.3rem;
 }
 
 .tarjeta-formulario-contacto {
   background: var(--color-fondo-siguiente);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.153);
+  box-shadow: 0 4px 15px var(--sombra);
   border-radius: 28px;
   padding: 3rem 2.5rem;
   border: none;
@@ -129,7 +129,6 @@ a.valor-info:hover {
 
 .campo-form input:focus,
 .campo-form textarea:focus {
-  border-color: var(--color-acento-azul, #2b82c5);
   box-shadow: 0 0 0 3px rgba(43, 130, 197, 0.15);
 }
 

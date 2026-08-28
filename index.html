@@ -75,6 +75,32 @@
     </button>
   </div>
 
+ <!-- boton redes -->
+ <div class="social-fab-container" id="socialFab">
+  <input type="checkbox" id="btn-fab-toggle">
+  
+  <div class="social-links">
+    <a href="https://www.instagram.com/novasys.arg/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="mailto:novasys@novasys.com.ar" class="social-btn mail" title="Correo">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    <a href="https://wa.me/5491124758250" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" title="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="https://www.linkedin.com/company/novasys-s-r-l-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+  </div>
+  
+  <div class="fab-main">
+    <label for="btn-fab-toggle" class="fab-icon">
+      <i class="fa-solid fa-plus"></i>
+    </label>
+  </div>
+</div>
+
   <section id="inicio" class="seccion-principal">
     <header class="encabezado">
       <div class="contenedor-logo">
@@ -95,15 +121,14 @@
       </div>
       
       <hr class="separador-menu">
-
       <nav class="navegacion-menu">
         <ul>
-          <li><a href="#" class="activo"><i class="fa-solid fa-house"></i> <span>Inicio</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-gear"></i> <span>Servicios</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-box"></i> <span>Productos</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-handshake"></i> <span>Clientes</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-user-group"></i> <span>Nosotros</span></a></li>
-          <li><a href="#"><i class="fa-solid fa-phone"></i> <span>Contacto</span></a></li>
+          <li><a href="#inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a></li>
+          <li><a href="#servicios"><i class="fa-solid fa-gear"></i> <span>Servicios</span></a></li>
+          <li><a href="#productos"><i class="fa-solid fa-box"></i> <span>Productos</span></a></li>
+          <li><a href="#clientes"><i class="fa-solid fa-handshake"></i> <span>Clientes</span></a></li>
+          <li><a href="#nosotros"><i class="fa-solid fa-user-group"></i> <span>Nosotros</span></a></li>
+          <li><a href="#contacto"><i class="fa-solid fa-phone"></i> <span>Contacto</span></a></li>
         </ul>
       </nav>
 
@@ -162,11 +187,7 @@
       <img src="./datos/foto-servicios.png" alt="Servicios Novasys">
     </div>
   </div>
-
-  <!-- Grilla horizontal de 6 tarjetas -->
   <div class="grilla-6-tarjetas">
-    
-    <!-- 1. Servicios de Ingeniería -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-cogs icono-servicio"></i>
@@ -177,8 +198,6 @@
         <span>Servicios de Ingeniería</span>
       </div>
     </div>
-
-    <!-- 2. Soporte Técnico -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-headset icono-servicio"></i>
@@ -189,8 +208,6 @@
         <span>Soporte Técnico</span>
       </div>
     </div>
-
-    <!-- 3. Comercialización SUITE SAT -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-shield-alt icono-servicio"></i>
@@ -201,8 +218,6 @@
         <span>Comercialización SUITE SAT</span>
       </div>
     </div>
-
-    <!-- 4. Aplicaciones Web -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-desktop icono-servicio"></i>
@@ -213,8 +228,6 @@
         <span>Aplicaciones Web</span>
       </div>
     </div>
-
-    <!-- 5. Sistemas de Autogestión -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-fingerprint icono-servicio"></i>
@@ -225,8 +238,6 @@
         <span>Sistemas de Autogestión</span>
       </div>
     </div>
-
-    <!-- 6. Investigación Tecnológica -->
     <div class="tarjeta-servicio">
       <div class="contenido-reposo">
         <i class="fas fa-search icono-servicio"></i>
@@ -237,10 +248,7 @@
         <span>Investigación Tecnológica</span>
       </div>
     </div>
-
   </div>
-
-  <!-- Validación y Estándares Internacionales -->
   <div class="bloque-estandares">
     <h2 class="titulo-estandares">Validación y Estándares<br>Internacionales</h2>
     <p class="descripcion-estandares">
@@ -248,8 +256,6 @@
     </p>
 
     <div class="grilla-certificaciones">
-      
-      <!-- Certificado 1: IRAM -->
       <div class="tarjeta-certificacion">
         <div class="encabezado-cert">
           <div class="caja-icono-cert">
@@ -268,14 +274,10 @@
           <li><i class="fas fa-check-circle"></i> Soporte técnico y atención a clientes con trazabilidad total.</li>
           <li><i class="fas fa-check-circle"></i> Homologación en la red internacional IQNet.</li>
         </ul>
-
-        <!-- Enlace abre el PDF en nueva pestaña -->
         <a href="./datos/certificacion-iso.png" target="_blank" rel="noopener noreferrer" class="boton-ver-certificado">
           Ver certificado
         </a>
       </div>
-
-      <!-- Certificado 2: Gartner -->
       <div class="tarjeta-certificacion">
         <div class="encabezado-cert">
           <div class="caja-icono-cert letra-gartner">G</div>
@@ -389,15 +391,13 @@
     </button>
   </div>
 </section>
-<!-- SECCIÓN CLIENTES -->
+<!-- Clientes -->
 <section class="seccion-clientes" id="clientes">
   <div class="encabezado-clientes">
     <span class="etiqueta-seccion">CLIENTES</span>
     <h2 class="titulo-seccion">Nuestros <span class="texto-azul">clientes</span></h2>
     <p class="descripcion-seccion">Algunos de nuestros clientes dicen:</p>
   </div>
-
-  <!-- Carrusel de Testimonios (1 sola tarjeta horizontal) -->
   <div class="contenedor-testimonio-carrusel">
     <button class="boton-flecha-testimonio" id="btnTestimonioPrev" aria-label="Anterior">
       <i class="fa-solid fa-chevron-left"></i>
@@ -452,11 +452,8 @@
       <i class="fa-solid fa-chevron-right"></i>
     </button>
   </div>
-
-  <!-- Puntos del testimonio -->
   <div class="indicadores-puntos" id="puntosTestimonios"></div>
 
-  <!-- Logos de Clientes -->
   <div class="bloque-logos-confianza">
     <h3 class="subtitulo-logos">Clientes que confían en Novasys</h3>
     <div class="marquesina-contenedor">
@@ -467,7 +464,6 @@
         <div class="tarjeta-logo"><img src="./datos/brubank.png" alt="Brubank"></div>
         <div class="tarjeta-logo"><img src="./datos/credicoop.png" alt="Banco Credicoop"></div>
 
-        <!-- Duplicado para loop de logos -->
         <div class="tarjeta-logo"><img src="./datos/macro.png" alt="Banco Macro BMA"></div>
         <div class="tarjeta-logo"><img src="./datos/nacion.png" alt="Banco Nación"></div>
         <div class="tarjeta-logo"><img src="./datos/bancor.png" alt="BANCOR"></div>
@@ -477,10 +473,8 @@
     </div>
   </div>
 </section>
-<!-- SECCIÓN NOSOTROS -->
+<!-- Nosotros -->
 <section class="seccion-nosotros" id="nosotros">
-  
-  <!-- Bloque 1: Presentación -->
   <div class="nosotros-presentacion">
     <div class="nosotros-texto">
       <span class="etiqueta-seccion">NOSOTROS</span>
@@ -494,9 +488,7 @@
     </div>
   </div>
 
-  <!-- Bloque 2: Métricas / Estadísticas -->
   <div class="nosotros-metricas">
-    
     <div class="tarjeta-metrica">
       <div class="icono-metrica">
         <i class="fa-solid fa-briefcase"></i>
@@ -506,7 +498,6 @@
         <p>Más de 29 años liderando desarrollos de alto nivel para seguridad lógica de IT.</p>
       </div>
     </div>
-
     <div class="tarjeta-metrica">
       <div class="icono-metrica">
         <i class="fa-solid fa-gear"></i>
@@ -516,7 +507,6 @@
         <p>Más de 140 proyectos desarrollados e implementados con éxito para nuestros clientes.</p>
       </div>
     </div>
-
     <div class="tarjeta-metrica">
       <div class="icono-metrica">
         <i class="fa-solid fa-globe"></i>
@@ -526,15 +516,10 @@
         <p>Presencia y despliegue de nuestras herramientas de seguridad en 12 países.</p>
       </div>
     </div>
-
   </div>
-
-  <!-- Bajada previa al equipo -->
   <p class="bajada-equipo">
     Contamos con un equipo multidisciplinario de profesionales apasionados por la tecnología y la seguridad informática, comprometidos en impulsar la innovación y proteger el activo más valioso de tu empresa.
   </p>
-
-  <!-- Bloque 3: Carrusel del Equipo -->
   <div class="contenedor-carrusel-nosotros">
     <div class="pista-carrusel" id="pistaEquipo">
       
@@ -567,13 +552,8 @@
         <span class="cargo-miembro">Desarrollador en Software</span>
         <a href="#" class="btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
       </article>
-
-      <!-- Podés agregar más miembros acá y el JS los clona solos -->
-
     </div>
   </div>
-
-  <!-- Controles Carrusel Equipo -->
   <div class="controles-carrusel">
     <button class="boton-flecha" id="btnEquipoPrev" aria-label="Anterior">
       <i class="fa-solid fa-chevron-left"></i>
@@ -584,7 +564,7 @@
     </button>
   </div>
 </section>
-<!-- SECCIÓN CONTACTO -->
+<!-- Contacto -->
 <section class="seccion-contacto" id="contacto">
   <div class="encabezado-contacto">
     <span class="etiqueta-seccion">CONTACTO</span>
@@ -595,7 +575,6 @@
   </div>
 
   <div class="contenedor-contacto">
-    <!-- Columna Izquierda: Tarjetas de Información + Mapa -->
     <div class="columna-info-contacto">
       
       <div class="tarjeta-info-contacto">
@@ -627,8 +606,6 @@
           <p class="valor-info">Av. Jujuy 1875 7B, Cdad. Autónoma de Buenos Aires.</p>
         </div>
       </div>
-
-      <!-- Google Maps Embed -->
       <div class="contenedor-mapa">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.053412586716!2d-58.40182412347318!3d-34.62810845878248!2m3!1f0!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb0e6e8e88e7%3A0x6a1a1f09c612345!2sAv.%20Jujuy%201875%2C%20C1247%20CABA!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
@@ -640,10 +617,7 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-
     </div>
-
-    <!-- Columna Derecha: Formulario de Mensaje -->
     <div class="tarjeta-formulario-contacto">
       <h3 class="titulo-formulario">Envianos un mensaje</h3>
       
@@ -668,16 +642,12 @@
 
 <footer class="sitio-footer">
   <div class="contenedor-footer">
-    
-    <!-- Columna 1: Marca & Descripción -->
     <div class="columna-footer marca">
       <img src="./datos/logo.png" alt="NOVASYS" class="logo-footer">
       <p class="descripcion-empresa">
         Conectamos y transformamos tu infraestructura tecnológica con soluciones de vanguardia.
       </p>
     </div>
-
-    <!-- Columna 2: Navegación -->
     <div class="columna-footer">
       <h4 class="titulo-columna">Menú</h4>
       <ul class="lista-links">
@@ -690,7 +660,6 @@
       </ul>
     </div>
 
-    <!-- Columna 3: Contacto Minimalista -->
     <div class="columna-footer">
       <h4 class="titulo-columna">Contacto</h4>
       <ul class="lista-contacto">
@@ -703,7 +672,6 @@
 
   </div>
 
-  <!-- Copyright / Cierre Apple Style -->
   <div class="base-footer">
     <div class="contenedor-base">
       <p>© 2026 Novasys SRL. Todos los derechos reservados.</p>

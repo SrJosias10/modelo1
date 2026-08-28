@@ -3,10 +3,11 @@
 
 :root {
   --fondo-degradado: linear-gradient(180deg, #afafaf 0%, #e1e1e1 35%, #ededed 70%, #f9f9f9 100%);
-  --naranja-titulo: linear-gradient(180deg, #ff6e55 0%, #da1200 100%);
+  --naranja-titulo: linear-gradient(180deg, #ff8c44 0%, #da3e00 100%);
   --color-fondo-siguiente: #f9f9f9;
   --texto-principal: #1a1a1a;
   --texto-secundario: #4a4a4a;
+  --sombra: rgba(0, 0, 0, 0.258);
   --boton-fondo: transparent;
   --boton-borde: #1a1a1a;
   --titulo-inicio: #2b2b2b;
@@ -16,9 +17,8 @@
   --linea-borde: #555555;
   --etiqueta-fondo: #e4e4e7;
   --etiqueta-texto: #18181b;
-  --sombra-tarjeta: 0 10px 30px rgba(0, 0, 0, 0.05);
   --radio-borde: 16px;
-  --color-acento-naranja: #e62200;
+  --color-acento-naranja: #fa6c1f;
   --azul-acento: #0077cc;
   --color-azul-hover-inicio: #0088ff;
   --color-azul-hover-fin: #0055b3;
@@ -34,7 +34,7 @@
   --titulo-inicio-efecto: linear-gradient(180deg, #afafaf 0%, #c9c9c9 100%);
   --etiqueta-fondo: #27272a;
   --etiqueta-texto: #f4f4f5;
-  --sombra-tarjeta: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --sombra: rgb(0, 0, 0);
 }
 
 * {
@@ -277,7 +277,7 @@ body {
 }
 
 .contenedor-selector-tema {
-  margin-top: 1.5rem !important; 
+  margin-top: 4rem !important; 
   padding-top: 0;
   align-self: flex-start; 
   width: 100%;
@@ -323,12 +323,6 @@ body {
   margin-top: auto;
 }
 
-.caja-selector-tema {
-  display: flex;
-  border: 1px solid var(--linea-borde);
-  border-radius: 4px;
-  overflow: hidden;
-}
 
 .boton-tema {
   flex: 1;
@@ -774,4 +768,117 @@ body {
     top: 33px;
     right: 30px;
   }
+}
+
+/* Boton redes */
+.social-fab-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 900; 
+}
+
+#btn-fab-toggle {
+  display: none;
+}
+
+/* Botón principal (+) */
+.fab-main .fab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--naranja-titulo);
+  color: var(--menu-texto);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--sombra-tarjeta);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.3s ease;
+  user-select: none;
+}
+#btn-fab-toggle:checked ~ .fab-main .fab-icon {
+  transform: rotate(135deg);
+  color: var(--menu-texto);
+}
+.social-links {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  pointer-events: none;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--menu-texto);
+  font-size: 20px;
+  text-decoration: none;
+  background-color: var(--menu-fondo);
+  border: 1px solid;
+  box-shadow: var(--sombra-tarjeta);
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btn-fab-toggle:checked ~ .social-links {
+  pointer-events: auto;
+}
+
+#btn-fab-toggle:checked ~ .social-links .social-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.social-btn.linkedin:hover {
+  background-color: var(--azul-acento);
+  color: #ffffff;
+}
+
+.social-btn.whatsapp:hover {
+  background-color: #25d366;
+  color: #ffffff;
+}
+.social-btn.mail:hover {
+  background-color: var(--color-acento-naranja);
+  color: #ffffff;
+}
+.social-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  color: #ffffff;
+}
+
+/* jerarquia de posiciones */
+.navbar-desplegable,
+.sidebar-menu {
+  z-index: 1000 !important;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+#capa-oscura {
+  z-index: 9998 !important;
+}
+#menu-lateral {
+  z-index: 9999 !important;
+}
+.social-fab-container,
+#waContainer,
+.wa-float-btn {
+  z-index: 900 !important;
 }

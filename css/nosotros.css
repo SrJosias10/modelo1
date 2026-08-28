@@ -46,7 +46,8 @@
 }
 
 .tarjeta-metrica {
-  background: var(--fondo-degradado, linear-gradient(180deg, #d2d6db 0%, #f4f5f7 100%));
+  background: var(--color-fondo-siguiente);
+  box-shadow: 0 4px 15px var(--sombra);
   border-radius: 20px;
   padding: 2rem 1.5rem;
   border: none;
@@ -94,7 +95,8 @@
 
 .tarjeta-miembro {
   flex: 0 0 calc((100% - 48px) / 3);
-  background: var(--fondo-degradado, linear-gradient(180deg, #d2d6db 0%, #f4f5f7 100%));
+  background: var(--color-fondo-siguiente);
+  box-shadow: 0 4px 15px var(--sombra);
   border-radius: 24px;
   border: none;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
@@ -121,7 +123,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px var(--sombra);
   border: 3px solid #ffffff;
 }
 

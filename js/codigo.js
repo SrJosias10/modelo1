@@ -1,3 +1,66 @@
+//navegacion
+document.addEventListener('DOMContentLoaded', () => {
+  const enlacesNav = document.querySelectorAll('.navegacion-menu a, .lista-links a, a[href^="#"]');
+  enlacesNav.forEach(enlace => {
+    enlace.addEventListener('click', (e) => {
+      const targetId = enlace.getAttribute('href')?.replace('#', '');
+      if (!targetId) return;
+      e.preventDefault();
+      const targetSection = document.getElementById(targetId);
+      const menuLateral = document.getElementById('menu-lateral');
+      const capaOscura = document.getElementById('capa-oscura');
+      const botonHamburguesa = document.getElementById('boton-hamburguesa');
+      if (menuLateral) menuLateral.classList.remove('abierto');
+      if (capaOscura) capaOscura.classList.remove('visible');
+      document.body.classList.remove('no-scroll');
+      if (botonHamburguesa) botonHamburguesa.style.display = 'flex';
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      } else if (targetId === 'inicio') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+  const secciones = document.querySelectorAll('section[id], header[id]');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idActual = entry.target.getAttribute('id');
+        document.querySelectorAll('.navegacion-menu a').forEach(enlace => {
+          const href = enlace.getAttribute('href')?.replace('#', '');
+          if (href === idActual) {
+            enlace.classList.add('activo');
+          } else {
+            enlace.classList.remove('activo');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  secciones.forEach(seccion => observer.observe(seccion));
+});
+
+// boton redes salir
+document.addEventListener('click', (event) => {
+  const fabContainer = document.getElementById('socialFab');
+  const fabCheckbox = document.getElementById('btn-fab-toggle');
+
+  if (fabCheckbox && fabCheckbox.checked) {
+    // Si el clic NO ocurrió dentro del contenedor de redes, se desmarca
+    if (!fabContainer.contains(event.target)) {
+      fabCheckbox.checked = false;
+    }
+  }
+});
+
 ///// Boton whatsapp
 
 let waHasOpened = false;
@@ -93,6 +156,7 @@ window.addEventListener('scroll', () => {
 });
 
 //hamburguesa
+// Hamburguesa y Control de Scroll
 document.addEventListener('DOMContentLoaded', () => {
   const botonHamburguesa = document.getElementById('boton-hamburguesa');
   const botonCerrar = document.getElementById('boton-cerrar');
@@ -107,35 +171,37 @@ document.addEventListener('DOMContentLoaded', () => {
   function abrirMenu() {
     menuLateral.classList.add('abierto');
     capaOscura.classList.add('visible');
-    botonHamburguesa.style.display = 'none'; // Oculta la hamburguesa al abrir
+    document.body.classList.add('no-scroll'); // Congela el scroll
+    if (botonHamburguesa) botonHamburguesa.style.display = 'none';
   }
 
   function cerrarMenu() {
     menuLateral.classList.remove('abierto');
     capaOscura.classList.remove('visible');
-    botonHamburguesa.style.display = 'flex'; // Vuelve a mostrar la hamburguesa al cerrar
+    document.body.classList.remove('no-scroll'); // Libera el scroll
+    if (botonHamburguesa) botonHamburguesa.style.display = 'flex';
   }
 
-  botonHamburguesa.addEventListener('click', abrirMenu);
-  botonCerrar.addEventListener('click', cerrarMenu);
-  capaOscura.addEventListener('click', cerrarMenu);
+  if (botonHamburguesa) botonHamburguesa.addEventListener('click', abrirMenu);
+  if (botonCerrar) botonCerrar.addEventListener('click', cerrarMenu);
+  if (capaOscura) capaOscura.addEventListener('click', cerrarMenu);
 
   function activarModoClaro() {
     elementoHtml.setAttribute('data-tema', 'claro');
-    botonModoClaro.classList.add('activo');
-    botonModoOscuro.classList.remove('activo');
-    logoPrincipal.src = './datos/logo-modo-claro.png';
+    if (botonModoClaro) botonModoClaro.classList.add('activo');
+    if (botonModoOscuro) botonModoOscuro.classList.remove('activo');
+    if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-claro.png';
   }
 
   function activarModoOscuro() {
     elementoHtml.setAttribute('data-tema', 'oscuro');
-    botonModoOscuro.classList.add('activo');
-    botonModoClaro.classList.remove('activo');
-    logoPrincipal.src = './datos/logo-modo-oscuro.png';
+    if (botonModoOscuro) botonModoOscuro.classList.add('activo');
+    if (botonModoClaro) botonModoClaro.classList.remove('activo');
+    if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-oscuro.png';
   }
 
-  botonModoClaro.addEventListener('click', activarModoClaro);
-  botonModoOscuro.addEventListener('click', activarModoOscuro);
+  if (botonModoClaro) botonModoClaro.addEventListener('click', activarModoClaro);
+  if (botonModoOscuro) botonModoOscuro.addEventListener('click', activarModoOscuro);
 });
 
 //carrusel
