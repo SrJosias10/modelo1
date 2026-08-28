@@ -1,12 +1,19 @@
 .seccion-principal {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 4rem;
   position: relative;
-  /* Aplicamos el degradado exacto definido en las variables */
   background: var(--fondo-degradado);
+  box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+  .seccion-principal {
+    padding: 1.5rem 1.25rem; 
+  }
 }
 
 /* Contenido Principal */
