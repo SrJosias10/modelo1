@@ -38,7 +38,12 @@
   --sombra: rgb(0, 0, 0);
   --sombra-leve: rgba(0, 0, 0, 0.304);
 }
-
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; 
+  position: relative;
+}
 * {
   box-sizing: border-box;
   margin: 0;
