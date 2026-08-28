@@ -166,19 +166,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const botonModoClaro = document.getElementById('boton-modo-claro');
   const botonModoOscuro = document.getElementById('boton-modo-oscuro');
   const logoPrincipal = document.getElementById('logo-principal');
+  const logoNavbar = document.getElementById('logo-navbar');
+  const logoFooter = document.getElementById('logo-footer');
   const elementoHtml = document.documentElement;
 
   function abrirMenu() {
     menuLateral.classList.add('abierto');
     capaOscura.classList.add('visible');
-    document.body.classList.add('no-scroll'); // Congela el scroll
+    document.body.classList.add('no-scroll');
     if (botonHamburguesa) botonHamburguesa.style.display = 'none';
   }
 
   function cerrarMenu() {
     menuLateral.classList.remove('abierto');
     capaOscura.classList.remove('visible');
-    document.body.classList.remove('no-scroll'); // Libera el scroll
+    document.body.classList.remove('no-scroll');
     if (botonHamburguesa) botonHamburguesa.style.display = 'flex';
   }
 
@@ -191,6 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (botonModoClaro) botonModoClaro.classList.add('activo');
     if (botonModoOscuro) botonModoOscuro.classList.remove('activo');
     if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-claro.png';
+    if (logoNavbar) logoNavbar.src = './datos/logo-navbar-responsive.png';
+    if (logoFooter) logoFooter.src = './datos/logo.png';
   }
 
   function activarModoOscuro() {
@@ -198,6 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (botonModoOscuro) botonModoOscuro.classList.add('activo');
     if (botonModoClaro) botonModoClaro.classList.remove('activo');
     if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-oscuro.png';
+    if (logoNavbar) logoNavbar.src = './datos/logo-navbar-responsive-nocturno.png';
+    if (logoFooter) logoFooter.src = './datos/logo-modo-oscuro.png';
   }
 
   if (botonModoClaro) botonModoClaro.addEventListener('click', activarModoClaro);

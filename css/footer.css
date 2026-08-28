@@ -1,13 +1,9 @@
 .sitio-footer {
-  background-color: var(--color-fondo-siguiente);
-  color: var(--texto-principal);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  border-top: 1px solid var(--linea-borde);
+  background: var(--fondo-degradado);
+  color: var(--texto-secundario);
   padding-top: 4.5rem;
   font-size: 0.85rem;
   width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .contenedor-footer {
@@ -29,7 +25,7 @@
 }
 
 .logo-footer {
-  height: 36px;
+  height: 60px;
   width: auto;
   margin: 0 auto 1.2rem auto;
   display: block;
@@ -43,18 +39,16 @@
   font-size: 0.85rem;
 }
 
-/* Título sin línea pegada: usamos peso + tracking + tamaño para jerarquía */
 .titulo-columna {
   font-size: 0.78rem;
   font-weight: 800;
-  color: var(--texto-principal);
+  color: var(--texto-secundario);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   margin: 0 0 1.5rem 0;
 }
 
-.lista-links,
-.lista-contacto {
+.lista-links {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -64,9 +58,7 @@
   gap: 0.85rem;
 }
 
-.lista-links a,
-.lista-contacto a,
-.lista-contacto span {
+.lista-links a {
   color: var(--texto-secundario);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -74,9 +66,42 @@
   white-space: nowrap;
 }
 
-.lista-links a:hover,
-.lista-contacto a:hover {
+.lista-links a:hover {
   color: var(--azul-acento);
+}
+
+.lista-contacto {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.lista-contacto a,
+.lista-contacto .item-ubicacion {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  color: var(--texto-secundario);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.icono-contacto {
+  font-size: 15px;
+  width: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--texto-secundario);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .base-footer {
@@ -131,9 +156,10 @@
 
   .lista-links a,
   .lista-contacto a,
-  .lista-contacto span {
+  .lista-contacto .item-ubicacion {
     font-size: 0.9rem;
   }
+
   .lista-links {
     display: grid;
     grid-template-columns: 1fr 1fr;

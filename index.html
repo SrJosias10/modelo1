@@ -101,6 +101,7 @@
   </div>
 </div>
 
+<!-- Inicio -->
   <section id="inicio" class="seccion-principal">
     <header class="encabezado">
       <div class="contenedor-logo">
@@ -116,7 +117,7 @@
 
     <aside class="menu-lateral" id="menu-lateral">
       <div class="encabezado-menu">
-        <img src="./datos/logo-navbar-responsive.png" alt="Novasys Logo" class="logo-menu">
+        <img src="./datos/logo-navbar-responsive.png" alt="Novasys Logo" class="logo-menu" id="logo-navbar">
         <button class="boton-cerrar" id="boton-cerrar" aria-label="Cerrar menú">&times;</button>
       </div>
       
@@ -409,7 +410,7 @@
         <!-- Testimonio 1 -->
         <article class="tarjeta-testimonio-horizontal">
           <div class="avatar-testimonio">
-            <img src="./datos/pic1.avif" alt="Cliente Uno">
+            <img src="./datos/cliente.png" alt="Cliente Uno">
           </div>
           <div class="info-testimonio">
             <p class="cita-testimonio">
@@ -422,7 +423,7 @@
         <!-- Testimonio 2 -->
         <article class="tarjeta-testimonio-horizontal">
           <div class="avatar-testimonio">
-            <img src="./datos/pic2.avif" alt="Cliente Dos">
+            <img src="./datos/cliente.png" alt="Cliente Dos">
           </div>
           <div class="info-testimonio">
             <p class="cita-testimonio">
@@ -435,7 +436,7 @@
         <!-- Testimonio 3 -->
         <article class="tarjeta-testimonio-horizontal">
           <div class="avatar-testimonio">
-            <img src="./datos/pic3.avif" alt="Cliente Tres">
+            <img src="./datos/cliente.png" alt="Cliente Tres">
           </div>
           <div class="info-testimonio">
             <p class="cita-testimonio">
@@ -526,7 +527,7 @@
       <!-- Miembro 1 -->
       <article class="tarjeta-miembro">
         <div class="avatar-miembro">
-          <img src="./datos/miembro1.jpg" alt="Nombre Apellido 1">
+          <img src="./datos/cliente.png" alt="Nombre Apellido 1">
         </div>
         <h3 class="nombre-miembro">Nombre Apellido 1</h3>
         <span class="cargo-miembro">CEO</span>
@@ -536,7 +537,7 @@
       <!-- Miembro 2 -->
       <article class="tarjeta-miembro">
         <div class="avatar-miembro">
-          <img src="./datos/miembro2.jpg" alt="Nombre Apellido 2">
+          <img src="./datos/cliente.png" alt="Nombre Apellido 2">
         </div>
         <h3 class="nombre-miembro">Nombre Apellido 2</h3>
         <span class="cargo-miembro">Project Manager</span>
@@ -546,7 +547,7 @@
       <!-- Miembro 3 -->
       <article class="tarjeta-miembro">
         <div class="avatar-miembro">
-          <img src="./datos/miembro3.jpg" alt="Nombre Apellido 3">
+          <img src="./datos/cliente.png" alt="Nombre Apellido 3">
         </div>
         <h3 class="nombre-miembro">Nombre Apellido 3</h3>
         <span class="cargo-miembro">Desarrollador en Software</span>
@@ -643,7 +644,7 @@
 <footer class="sitio-footer">
   <div class="contenedor-footer">
     <div class="columna-footer marca">
-      <img src="./datos/logo.png" alt="NOVASYS" class="logo-footer">
+      <img id="logo-footer" src="./datos/logo.png" alt="NOVASYS" class="logo-footer">
       <p class="descripcion-empresa">
         Conectamos y transformamos tu infraestructura tecnológica con soluciones de vanguardia.
       </p>
@@ -663,10 +664,26 @@
     <div class="columna-footer">
       <h4 class="titulo-columna">Contacto</h4>
       <ul class="lista-contacto">
-        <li><a href="mailto:novasys@novasys.com.ar">novasys@novasys.com.ar</a></li>
-        <li><a href="tel:+541152630913">+54 11 5263 0913</a></li>
-        <li><a href="https://wa.me/5491124758250" target="_blank">+54 9 11 2475 8250</a></li>
-        <li><span>Buenos Aires, Argentina</span></li>
+        <li>
+          <a href="mailto:novasys@novasys.com.ar">
+            <i class="fa-solid fa-square-envelope icono-contacto"></i>novasys@novasys.com.ar
+          </a>
+        </li>
+        <li>
+          <a href="tel:+541152630913">
+            <i class="fa-solid fa-square-phone icono-contacto"></i>+54 11 5263 0913
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/5491124758250" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-square-whatsapp icono-contacto"></i>+54 9 11 2475 8250
+          </a>
+        </li>
+        <li>
+          <div class="item-ubicacion">
+            <i class="fa-solid fa-location-dot icono-contacto"></i>Buenos Aires, Argentina
+          </div>
+        </li>
       </ul>
     </div>
 
