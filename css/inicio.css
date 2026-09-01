@@ -113,7 +113,7 @@
 
   .subtitulo-principal {
     font-size: 16px;
-    color: #4a4a4a;
+    color: var(--texto-secundario);
     max-width: 450px;
     margin: 0 auto;
     line-height: 1.5;
