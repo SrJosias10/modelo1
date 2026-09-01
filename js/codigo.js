@@ -174,16 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoFooter = document.getElementById('logo-footer');
   const elementoHtml = document.documentElement;
 
+  let scrollGuardado = 0;
+
   function abrirMenu() {
+    scrollGuardado = window.scrollY;
+    document.body.style.top = `-${scrollGuardado}px`;
     menuLateral.classList.add('abierto');
     capaOscura.classList.add('visible');
     document.body.classList.add('no-scroll');
   }
-
+  
   function cerrarMenu() {
     menuLateral.classList.remove('abierto');
     capaOscura.classList.remove('visible');
     document.body.classList.remove('no-scroll');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollGuardado);
   }
 
   if (botonHamburguesa) botonHamburguesa.addEventListener('click', abrirMenu);
