@@ -106,14 +106,35 @@
       <div class="contenedor-logo">
         <img id="logo-principal" src="./datos/logo-modo-claro.png" alt="Novasys Logo" class="logo">
       </div>
-      
+    
+      <nav class="navegacion-desktop">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        
+        <div class="caja-selector-tema-desktop">
+          <button id="boton-modo-oscuro-desktop" class="boton-tema" aria-label="Modo Oscuro">
+            <i class="fa-regular fa-moon"></i>
+          </button>
+          <button id="boton-modo-claro-desktop" class="boton-tema activo" aria-label="Modo Claro">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+        </div>
+      </nav>
+    
+      <!-- Botón Hamburguesa (Visible solo cuando la pantalla es <= 1100px) -->
       <button class="boton-hamburguesa" id="boton-hamburguesa" aria-label="Abrir menú">
         <i class="fa-solid fa-bars-staggered"></i>
       </button>
     </header>
-
+    
+    <!-- Menú Lateral / Overlay (Solo activo en Mobile/Tablet <= 1100px) -->
     <div class="capa-oscura" id="capa-oscura"></div>
-
+    
     <aside class="menu-lateral" id="menu-lateral">
       <div class="encabezado-menu">
         <img src="./datos/logo-navbar-responsive.png" alt="Novasys Logo" class="logo-menu" id="logo-navbar">
@@ -121,6 +142,7 @@
       </div>
       
       <hr class="separador-menu">
+      
       <nav class="navegacion-menu">
         <ul>
           <li><a href="#inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a></li>
@@ -131,7 +153,7 @@
           <li><a href="#contacto"><i class="fa-solid fa-phone"></i> <span>Contacto</span></a></li>
         </ul>
       </nav>
-
+    
       <div class="contenedor-selector-tema">
         <div class="caja-selector-tema">
           <button id="boton-modo-oscuro" class="boton-tema" aria-label="Modo Oscuro">
@@ -154,25 +176,23 @@
         Servicios de outsourcing especializado, así como desarrollo y comercialización de software de seguridad.
       </p>
 
-      <a href="#" class="boton">Reservá una cita</a>
-
-      <div class="contenedor-metricas">
-        <div class="item-metrica">
-          <i class="fa-solid fa-briefcase"></i>
-          <span>29 años de experiencia</span>
-        </div>
-        <div class="item-metrica">
-          <i class="fa-solid fa-gear"></i>
-          <span>+140 Proyectos Completados</span>
-        </div>
-        <div class="item-metrica">
-          <i class="fa-solid fa-globe"></i>
-          <span>12 Países alcanzados</span>
-        </div>
-      </div>
+      <a href="#contacto" class="boton boton-cita">Reservá una cita</a>
     </main>
+    <div class="contenedor-metricas">
+      <div class="item-metrica">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>29 años de experiencia</span>
+      </div>
+      <div class="item-metrica">
+        <i class="fa-solid fa-gear"></i>
+        <span>+140 Proyectos Completados</span>
+      </div>
+      <div class="item-metrica">
+        <i class="fa-solid fa-globe"></i>
+        <span>12 Países alcanzados</span>
+      </div>
+    </div>
   </section>
-
   <section class="seccion-servicios" id="servicios">
   <div class="bloque-superior-servicios">
     <div class="texto-encabezado-servicios">
