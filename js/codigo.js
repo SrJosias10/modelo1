@@ -1,3 +1,51 @@
+//Animacion de scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const observador = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, {
+    threshold: 0.35, 
+    rootMargin: "0px 0px -50px 0px"
+  });
+  const elementosAnimables = document.querySelectorAll(
+    ".titulo-principal, .subtitulo-principal, .titulo-seccion, .animar-entrada"
+  );
+  elementosAnimables.forEach((el) => {
+    el.classList.add("animar-entrada");
+    observador.observe(el);
+  });
+});
+
+//////
+document.addEventListener("DOMContentLoaded", () => {
+  const btnScrollTop = document.getElementById("btn-volver-arriba");
+
+  if (!btnScrollTop) return;
+
+  // Escuchar el evento scroll para mostrar u ocultar el botón
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btnScrollTop.classList.add("visible");
+    } else {
+      btnScrollTop.classList.remove("visible");
+    }
+  });
+
+  // Evento click para subir suavemente hasta arriba
+  btnScrollTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
+
+/////
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY > 50;
   document.querySelector('.encabezado').classList.toggle('scrolled', scrolled);
@@ -202,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (botonModoOscuro) botonModoOscuro.classList.remove('activo');
     if (botonModoClaroDesktop) botonModoClaroDesktop.classList.add('activo');
     if (botonModoOscuroDesktop) botonModoOscuroDesktop.classList.remove('activo');
-    if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-claro.png';
+    if (logoPrincipal) logoPrincipal.src = './datos/logo.png';
     if (logoNavbar) logoNavbar.src = './datos/logo-navbar-responsive.png';
     if (logoFooter) logoFooter.src = './datos/logo.png';
   }

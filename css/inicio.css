@@ -38,16 +38,7 @@
   max-width: 750px; 
 }
 
-.titulo-principal {
-  font-family: 'Inter', sans-serif;
-  font-size: 95px;
-  font-weight: 600;    
-  line-height: 0.88;  
-  letter-spacing: -1px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.2rem;
-}
+
 
 .titulo-oscuro {
   color: var(--titulo-inicio);
@@ -61,14 +52,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.subtitulo-principal {
-  font-size: 20px;
-  color: var(--titulo-inicio);
-  max-width: 540px;
-  margin: 0;
-  line-height: 1.35;
-  font-weight: 400;
-}
+
 
 .contenedor-metricas {
   display: flex;

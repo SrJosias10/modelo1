@@ -74,8 +74,12 @@
     </button>
   </div>
 
- <!-- boton redes -->
- <div class="social-fab-container" id="socialFab">
+<!-- boton redes -->
+<div class="social-fab-container" id="socialFab">
+  <button id="btn-volver-arriba" class="btn-scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
   <input type="checkbox" id="btn-fab-toggle">
   
   <div class="social-links">
@@ -92,7 +96,6 @@
       <i class="fa-brands fa-linkedin-in"></i>
     </a>
   </div>
-  
   <div class="fab-main">
     <label for="btn-fab-toggle" class="fab-icon">
       <i class="fa-solid fa-plus"></i>
@@ -104,7 +107,9 @@
   <section id="inicio" class="seccion-principal">
     <header class="encabezado">
       <div class="contenedor-logo">
-        <img id="logo-principal" src="./datos/logo-modo-claro.png" alt="Novasys Logo" class="logo">
+        <a href="#inicio">
+          <img id="logo-principal" src="./datos/logo.png" alt="Novasys Logo" class="logo">
+        </a>
       </div>
     
       <nav class="navegacion-desktop">
@@ -128,7 +133,7 @@
     
       <!-- Botón Hamburguesa (Visible solo cuando la pantalla es <= 1100px) -->
       <button class="boton-hamburguesa" id="boton-hamburguesa" type="button" aria-label="Abrir menú">
-        <i class="fa-solid fa-bars-staggered"></i>
+        <img src="./datos/navbar.png" alt="Menú" class="icono-hamburguesa">
       </button>
     </header>
     

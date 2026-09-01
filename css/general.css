@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --fondo-degradado: linear-gradient(rgba(212, 212, 212, 0.92), rgba(255, 255, 255, 0.95));
+  --fondo-degradado: linear-gradient(rgba(212, 212, 212, 0.90), rgba(255, 255, 255, 0.90));
   --naranja-titulo: linear-gradient(180deg, #ff8c44 0%, #da3e00 100%);
   --color-fondo-siguiente: #f9f9f9;
   --texto-principal: #1a1a1a;
   --texto-secundario: #4a4a4a;
   --sombra: rgba(0, 0, 0, 0.258);
   --sombra-leve: rgba(0, 0, 0, 0.094);
+  --sombra-up: rgba(0, 0, 0, 0.678);
   --boton-fondo: transparent;
   --boton-borde: #1a1a1a;
   --titulo-inicio: #2b2b2b;
@@ -32,10 +33,11 @@
   --texto-secundario: #cccccc;
   --boton-borde: #ffffff;
   --titulo-inicio: #c9c9c9;
-  --etiqueta-fondo: #27272a;
+  --etiqueta-fondo: #353535;
   --etiqueta-texto: #f4f4f5;
   --sombra: rgb(0, 0, 0);
   --sombra-leve: rgba(0, 0, 0, 0.304);
+  --sombra-up: rgba(255, 255, 255, 0.637);
   --menu-fondo: #dbdbdb;
   --menu-texto: #000000;
   --color-boton-activo: white;
@@ -82,7 +84,7 @@ body.no-scroll {
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 .encabezado.scrolled {
-  background-color: rgba(255, 255, 255, 0.272);
+  background-color: rgba(255, 255, 255, 0.425);
   backdrop-filter: blur(12px) saturate(150%);
   -webkit-backdrop-filter: blur(12px) saturate(150%);
   box-shadow: 0 2px 20px var(--sombra-leve);
@@ -105,6 +107,35 @@ body.no-scroll {
   height: 55px;
   object-fit: contain;
 }
+.btn-scroll-top {
+  position: fixed;
+  bottom: 24px; 
+  right: 92px;  
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--sombra-up);
+  color: var(--icono-boton-activo);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 899;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.btn-scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
 
 .etiqueta-seccion {
   display: inline-block;
@@ -118,6 +149,26 @@ body.no-scroll {
   margin-bottom: 15px;
 }
 
+.titulo-principal {
+  font-family: 'Inter', sans-serif;
+  font-size: 95px;
+  font-weight: 600;    
+  line-height: 0.88;  
+  letter-spacing: -1px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.subtitulo-principal {
+  font-size: 20px;
+  color: var(--titulo-inicio);
+  max-width: 540px;
+  margin: 0;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
 .titulo-seccion {
   font-size: 40px;
   font-weight: 600;
@@ -125,9 +176,21 @@ body.no-scroll {
   margin-bottom: 1rem;
 }
 
-/* ================================================== */
-/* BOTÓN GENERAL CON EFECTO CORTINA                   */
-/* ================================================== */
+.animar-entrada {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animar-entrada.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.subtitulo-principal.animar-entrada {
+  transition-delay: 0.35s;
+}
 .boton {
   position: relative;
   z-index: 1;
@@ -189,16 +252,9 @@ body.no-scroll {
   transform: scale(0.95);
 }
 
-/* ================================================== */
-/* NAVEGACIÓN DESKTOP (POR DEFECTO OCULTA)            */
-/* ================================================== */
 .navegacion-desktop {
   display: none;
 }
-
-/* ================================================== */
-/* BOTÓN HAMBURGUESA Y MENÚ LATERAL (MOBILE)          */
-/* ================================================== */
 .boton-hamburguesa {
   position: fixed;
   top: 40px;
@@ -207,8 +263,6 @@ body.no-scroll {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 35px;
-  color: var(--texto-principal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,10 +274,20 @@ body.no-scroll {
   transition: all 0.3s ease;
 }
 
+.boton-hamburguesa .icono-hamburguesa {
+  width: 38px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .boton-hamburguesa:hover {
   opacity: 0.75;
 }
 
+[data-tema="oscuro"] .boton-hamburguesa .icono-hamburguesa {
+  filter: brightness(0) invert(1);
+}
 .boton-hamburguesa.scrolled {
   top: 20px;
   right: 20px;
@@ -231,11 +295,19 @@ body.no-scroll {
   height: 48px;
   border-radius: 50%;
   background: var(--menu-fondo);
-  color: var(--menu-texto);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-size: 20px;
+}
+
+.boton-hamburguesa.scrolled .icono-hamburguesa {
+  width: 22px;
+}
+.boton-hamburguesa.scrolled .icono-hamburguesa {
+  filter: brightness(0) invert(1);
+}
+[data-tema="oscuro"] .boton-hamburguesa.scrolled .icono-hamburguesa {
+  filter: brightness(0);
 }
 
 .menu-lateral {
@@ -671,8 +743,8 @@ body.no-scroll {
 }
 
 .wa-float-btn {
-  width: 60px;
-  height: 60px;
+  width: 56px;                 
+  height: 56px;
   min-width: 60px;
   border-radius: 50%;
   background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
@@ -791,8 +863,8 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55px;
-  height: 55px;
+  width: 56px;               
+  height: 56px;
   border-radius: 50%;
   background: var(--naranja-titulo);
   color: var(--menu-texto);
@@ -813,8 +885,9 @@ body.no-scroll {
   flex-direction: column-reverse;
   gap: 12px;
   position: absolute;
-  bottom: 65px;
-  right: 0;
+  bottom: 68px;      
+  right: 4px;           
+  align-items: center;
   pointer-events: none;
 }
 
@@ -900,12 +973,21 @@ body.no-scroll {
 }
 
 @media (max-width: 420px) {
-  .wa-widget-container {
-    left: 12px;
-    bottom: 12px;
-  }
   .wa-chat-box {
     width: calc(100vw - 24px);
+  }
+  .wa-widget-container {
+    left: 16px;
+    bottom: 16px;
+  }
+  
+  .social-fab-container {
+    right: 16px;
+    bottom: 16px;
+  }
+  .btn-scroll-top {
+    right: 80px;
+    bottom: 16px;
   }
 }
 
@@ -933,14 +1015,14 @@ body.no-scroll {
 
   .navegacion-desktop a {
     text-decoration: none;
-    color: var(--texto-principal);
+    color: var(--texto-secundario);
     font-size: 1.05rem;
     font-weight: 500;
     transition: color 0.25s ease;
   }
 
   .navegacion-desktop a:hover {
-    color: var(--color-acento-naranja);
+    color: var(--azul-acento);
   }
 
   .caja-selector-tema-desktop {
