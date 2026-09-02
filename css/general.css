@@ -416,41 +416,59 @@ body.no-scroll {
 
 .caja-selector-tema {
   display: flex;
-  background-color: none;
-  border: 2px solid var(--linea-borde);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
+  background-color: transparent;
+  border: 1.5px solid var(--linea-borde);
+  border-radius: 20px; 
+  padding: 4px 6px; 
+  gap: 6px;
+  align-items: center;
+}
+.contenedor-selector-tema .caja-selector-tema{
+  border: 2.5px solid var(--linea-borde);
 }
 
 .boton-tema {
   flex: 1;
   background: transparent;
   border: none;
-  padding: 0.75rem;
-  font-size: 1.1rem;
+  padding: 4px 8px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.25s ease;
+  border-radius: 20px;  
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.boton-tema i {
-  color: var(--color-boton-activo);
+.contenedor-selector-tema .boton-tema{
+  padding: 10px 10px;
+  border-radius: 15px; 
 }
-  
+
 .boton-tema:hover {
   color: var(--color-boton-activo);
 }
-  
-.boton-tema.activo i {
-  color: var(--icono-boton-activo);
-}
 
+.boton-tema img {
+  width: 20px;  
+  height: 20px;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+[data-tema="oscuro"] .boton-tema:not(.activo) img {
+  filter: brightness(0) invert(1);
+}
 .boton-tema.activo {
   background-color: var(--color-boton-activo);
+  transform: scale(1);
+}
+:root .boton-tema.activo img {
+  transform: rotate(360deg) scale(1.15);
+  filter: brightness(0) invert(1);
+}
+
+[data-tema="oscuro"] .boton-tema.activo img {
+  transform: rotate(360deg) scale(1.15);
+  filter: none;
 }
 
 .capa-oscura {
