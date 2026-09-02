@@ -161,6 +161,7 @@ body.no-scroll {
 }
 
 .subtitulo-principal {
+  color: var(--texto-secundario);
   font-size: 20px;
   max-width: 540px;
   margin: 0;
@@ -443,6 +444,9 @@ body.no-scroll {
   padding: 10px 10px;
   border-radius: 15px; 
 }
+.contenedor-selector-tema .boton-tema.activo{
+  background-color: var(--color-boton-activo);
+}
 
 .boton-tema:hover {
   color: var(--color-boton-activo);
@@ -458,16 +462,16 @@ body.no-scroll {
   filter: brightness(0) invert(1);
 }
 .boton-tema.activo {
-  background-color: var(--color-boton-activo);
+  background-color: var(--menu-fondo);
   transform: scale(1);
 }
 :root .boton-tema.activo img {
-  transform: rotate(360deg) scale(1.15);
+  transform: rotate(360deg);
   filter: brightness(0) invert(1);
 }
 
 [data-tema="oscuro"] .boton-tema.activo img {
-  transform: rotate(360deg) scale(1.15);
+  transform: rotate(360deg);
   filter: none;
 }
 
