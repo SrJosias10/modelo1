@@ -204,7 +204,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-//hamburguesa
+//hamburguesa y temas
 document.addEventListener('DOMContentLoaded', () => {
   const botonHamburguesa = document.getElementById('boton-hamburguesa');
   const botonCerrar = document.getElementById('boton-cerrar');
@@ -243,6 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function activarModoClaro() {
     elementoHtml.setAttribute('data-tema', 'claro');
+    localStorage.setItem('theme', 'claro');
+
     if (botonModoClaro) botonModoClaro.classList.add('activo');
     if (botonModoOscuro) botonModoOscuro.classList.remove('activo');
     if (botonModoClaroDesktop) botonModoClaroDesktop.classList.add('activo');
@@ -254,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function activarModoOscuro() {
     elementoHtml.setAttribute('data-tema', 'oscuro');
+    localStorage.setItem('theme', 'oscuro');
 
     if (botonModoOscuro) botonModoOscuro.classList.add('activo');
     if (botonModoClaro) botonModoClaro.classList.remove('activo');
@@ -262,6 +265,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoPrincipal) logoPrincipal.src = './datos/logo-modo-oscuro.png';
     if (logoNavbar) logoNavbar.src = './datos/logo-navbar-responsive-nocturno.png';
     if (logoFooter) logoFooter.src = './datos/logo-modo-oscuro.png';
+  }
+
+  const temaGuardado = localStorage.getItem('theme');
+  if (temaGuardado === 'oscuro') {
+    activarModoOscuro();
+  } else {
+    activarModoClaro();
   }
   if (botonModoClaro) botonModoClaro.addEventListener('click', activarModoClaro);
   if (botonModoOscuro) botonModoOscuro.addEventListener('click', activarModoOscuro);
