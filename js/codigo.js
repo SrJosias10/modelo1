@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnScrollTop = document.getElementById("btn-volver-arriba");
 
   if (!btnScrollTop) return;
-
-  // Escuchar el evento scroll para mostrar u ocultar el botón
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
       btnScrollTop.classList.add("visible");
@@ -114,7 +112,6 @@ document.addEventListener('click', (event) => {
 });
 
 ///// Boton whatsapp
-
 let waHasOpened = false;
 const PHONE_NUMBER = "5491124758250";
 
@@ -313,12 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
       pista.appendChild(el);
     });
 
-    // --- NUEVO: ASIGNAR CLIC A TODAS LAS TARJETAS DE LA PISTA (ORIGINALES + CLONES) ---
     Array.from(pista.children).forEach((tarjeta, i) => {
       tarjeta.addEventListener("click", (e) => {
-        // Si la tarjeta clickeada NO es la activa actual y no se está moviendo
         if (i !== indice && !moviendo) {
-          // Prevenimos que se disparen enlaces o botones internos si estaba opaca
           e.preventDefault();
           e.stopPropagation();
 
@@ -471,8 +465,6 @@ document.addEventListener("DOMContentLoaded", () => {
     puntosId: "puntosEquipo"
   });
 });
-
-
 
 //carrusel clientes
 document.addEventListener("DOMContentLoaded", () => {
